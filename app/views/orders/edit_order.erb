@@ -1,0 +1,55 @@
+<h2> View Order Details </h2>
+<% if flash.has?(:error) %> <%= flash[:error] %> <% end %>
+
+<p>Order Date: <%= time = @order.created_at.localtime
+time.strftime("%B %d, %Y at %I:%M %p") %></p>
+<p>Order #: <%= @order.id %></p>
+<p>Order total: $10</p>
+<form method="post" action="/orders/<%= @order.id %>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Cancel Order">
+</form>
+
+<h3> Shipment Details </h3>
+<p>Delivery Estimate:
+<%= est_delivery = time + 7.days 
+est_delivery.strftime("%B %d, %Y") %></p>
+
+<h3> Payment Information </h3>
+<h4> Payment Method</h4>
+<p> Card ending in <%= @order.card_number[-4..-1] %>
+<h3> Billing Address </h3>
+<%= @order.bill_firstname %> <%= @order.bill_lastname %><br>
+<%= @order.bill_address1 %>, <%= @order.bill_address2 %><br>
+<%= @order.bill_city %>, <%= @order.bill_state %> <%= @order.bill_zipcode %> 
+
+<h4> Update Payment Method</h4>
+<form method="post" action="/orders/<%=@order.id%>">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
+  <p>Card Number: <input type="text" name="card_number"> Verification Code: <input type="text" name="card_verification"></p>
+  <p>Expiration Date: <input type="month" name="card_expiration_date"> </p> 
+  <p>First Name: <input type="text" name="bill_firstname"> Last Name <input type="text" name="bill_lastname"></p>
+  <p>Address: <input type="text" name="bill_address1"> Unit: <input type="text" name="bill_address2"></p>
+  <p>City: <input type="text" name="bill_city"> State: <input type="text" name="bill_state"> Zip: <input type="text" name="bill_zipcode"></p>  
+  <input class="btn btn-primary" type="submit" value="Update Payment Method">
+</form>
+
+<h3> Shipping Address </h3>
+<%= @order.ship_firstname %> <%= @order.ship_lastname %> <br>
+<%= @order.ship_address1 %>, <%= @order.ship_address2 %> <br>
+<%= @order.ship_city %>, <%= @order.ship_state %> <%= @order.ship_zipcode %> <br>
+<%= @order.phone %> 
+
+<h3> Order Summary </h3>
+<table>
+  <tr>
+    <th>Quantity</th>
+    <th>Product</th>
+    <th>Total</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Swanky Painting</td>
+    <td>10.00</td>
+  </tr>
+</table>

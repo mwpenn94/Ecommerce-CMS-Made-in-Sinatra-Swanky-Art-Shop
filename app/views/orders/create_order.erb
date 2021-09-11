@@ -1,0 +1,21 @@
+<h2>What stuff do you want?</h2>
+<% if flash.has?(:error) %> <%= flash[:error] %> <% end %>
+
+<h2>Shipping Address</h2>
+<form action="/orders" method="POST">
+  <p>First Name: <input type="text" name="ship_firstname"> Last Name: <input type="text" name="ship_lastname"></p>
+  <p>Address: <input type="text" name="ship_address1"> Unit: <input type="text" name="ship_address2"></p>
+  <p>City: <input type="text" name="ship_city"> State: <input type="text" name="ship_state"> Zip <input type="text" name="ship_zipcode"></p>
+  <p>Phone: <input type="text" name="phone">
+
+<h2>Debit or Credit Card</h2>
+  <p>Card Number: <input type="text" name="card_number"> Verification Code: <input type="text" name="card_verification"> </p>
+  <p>Expiration Date: <input type="month" name="card_expiration_date"> </p>
+
+<h2>Billing Address</h2>
+  <p>First Name: <input type="text" name="bill_firstname"> Last Name: <input type="text" name="bill_lastname"></p>
+  <p>Address: <input type="text" name="bill_address1"> Unit: <input type="text" name="bill_address2"></p>
+  <p>City: <input type="text" name="bill_city"> State: <input type="text" name="bill_state"> Zip <input type="text" name="bill_zipcode"></p>  
+  <input class="btn btn-primary" type="submit" value="Checkout">
+</form>
+

@@ -1,0 +1,15 @@
+<h2> Ordered! </h2>
+
+<h2> Address Info </h2>
+<%= @order.ship_firstname %> <%= @order.ship_lastname %> <br>
+<%= @order.ship_address1 %>, <%= @order.ship_address2 %> <br>
+<%= @order.ship_city %>, <%= @order.ship_state %> <%= @order.ship_zipcode %> <br>
+<%= @order.phone %>
+
+<h2> Order Info </h2>
+<a href="/orders/<%= @order.id %>/edit">View or Change this Order </a> <br>
+
+<form method="post" action="/orders/<%= @order.id %>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Cancel Order">
+</form>

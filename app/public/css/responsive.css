@@ -1,0 +1,58 @@
+.col-1 {
+    width: 100%;
+  }
+  
+  .col-2 {
+    width: 66%;
+  }
+  
+  .col-3 {
+    width: 33.33%;
+  }
+  
+  @media only screen and (max-width: 960px) {
+    .container {
+      width: 90%;
+    }
+  }
+  
+  @media only screen and (max-width: 400px) {
+    .sessions {
+      width: 100%;
+    }
+  
+    button#update, button#unfollow {
+      width: 100%;
+      margin: 0;
+    }
+  
+    button#update {
+      margin-top: 10px;
+    }
+  
+    #articles div form {
+      display: block;
+    }
+  }
+  
+  @media only screen and (max-width: 500px) {
+  
+    #new_feed button {
+      width: 100%;
+    }
+  
+    p#description, #index p {
+      text-align: inherit;
+    }
+  }
+  
+  @media only screen and (max-width: 765px) {
+    footer .social-link {
+      margin-right: 0;
+    }
+  
+    footer .social-link, footer > span {
+      display: block;
+      margin-bottom: 15px;
+    }
+  }
