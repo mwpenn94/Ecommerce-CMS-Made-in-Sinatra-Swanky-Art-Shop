@@ -1,5 +1,5 @@
 require "active_merchant/billing/rails"
-require 'pry'
+
 class OrdersController < ApplicationController
     
   get '/orders' do
@@ -26,7 +26,6 @@ class OrdersController < ApplicationController
         :last_name  => params[:bill_lastname],
         :verification_value  =>  params[:card_verification]
         )
-        p "credit_card_details: #{credit_card.inspect}"
         if credit_card.valid?
           gateway = ActiveMerchant::Billing::TrustCommerceGateway.new(
             :login    => 'TestMerchant',
@@ -35,7 +34,7 @@ class OrdersController < ApplicationController
             response = gateway.authorize(1000, credit_card)
              if response.success?
               gateway.capture(1000, response.authorization)
-              @order = current_user.orders.build(card_number: params[:card_number], card_expiration_date: params[:card_expiration_date], card_verification: params[:card_verification], bill_firstname: params[:bill_firstname], bill_lastname: params[:bill_lastname], bill_address1: params[:bill_address1], bill_address2: params[:bill_address2], bill_city: params[:bill_city], bill_state: params[:bill_state], bill_zipcode: params[:bill_zipcode], ship_firstname: params[:ship_firstname], ship_lastname: params[:ship_lastname], ship_address1: params[:ship_address1], ship_address2: params[:ship_address2], ship_city: params[:ship_city], ship_state: params[:ship_state], ship_zipcode: params[:ship_zipcode], phone: params[:phone], ) 
+              @order = current_user.orders.build(card_number: params[:card_number], card_expiration_date: params[:card_expiration_date], card_verification: params[:card_verification], bill_firstname: params[:bill_firstname], bill_lastname: params[:bill_lastname], bill_address1: params[:bill_address1], bill_address2: params[:bill_address2], bill_city: params[:bill_city], bill_state: params[:bill_state], bill_zipcode: params[:bill_zipcode], ship_firstname: params[:ship_firstname], ship_lastname: params[:ship_lastname], ship_address1: params[:ship_address1], ship_address2: params[:ship_address2], ship_city: params[:ship_city], ship_state: params[:ship_state], ship_zipcode: params[:ship_zipcode], phone: params[:phone]) 
                 if @order.save
                   redirect to "/orders/#{@order.id}"
                 else
@@ -83,7 +82,6 @@ class OrdersController < ApplicationController
           :last_name  => params[:bill_lastname],
           :verification_value  =>  params[:card_verification]
           )
-          p "credit_card_details: #{credit_card.inspect}"
           if credit_card.valid?
             gateway = ActiveMerchant::Billing::TrustCommerceGateway.new(
               :login    => 'TestMerchant',

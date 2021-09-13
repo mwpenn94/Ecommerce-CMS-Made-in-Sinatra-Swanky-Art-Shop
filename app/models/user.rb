@@ -10,16 +10,7 @@ class User < ActiveRecord::Base
                    length: { minimum: 2 }
   validates :email, presence: true,
                     format: EMAIL_REGEX
-  validates :password, length: { in: 6..10 }
-
-  def slug
-    username.downcase.gsub(" ","-")
-  end
-
-  def self.find_by_slug(input_text)
-    #User.all.find{|user| user.slug == slug}
-    User.where(slug: input_text)
-  end
+  validates :password, length: { in: 6..30 }
 end
 
 

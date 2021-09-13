@@ -21,6 +21,7 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.string   :ship_zipcode
       t.string   :phone
       t.integer  :user_id
+      
       t.timestamps null: false
     end
   end

@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a Simple Ecommerce Application. It allows a user to create an account, create, read, and update information related to orders of the single listed item for sale, as well as cancel their orders. 
+This is a Simple Ecommerce Application. It allows a user to create an account, create, read, and update information related to their orders of the single listed item for sale, as well as cancel and subsequently delete their orders. 
 
 [Watch this video to understand how this app works!]()
 
