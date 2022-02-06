@@ -4,9 +4,7 @@
 
 This is a Simple Ecommerce Application. It allows a user to create an account, create, read, and update information related to their orders of the single listed item for sale, as well as cancel and subsequently delete their orders. 
 
-[Watch this video to understand how this app works!]()
-
-[Blog post about this app]()
+[Check out the demo here🎬](https://drive.google.com/file/d/1H1nzANFqNmIq90Eildm3O37kHSDZ733S/view?usp=sharing)
 
 ## Built With
 
